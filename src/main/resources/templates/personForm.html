@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add / Edit Person</title>
+
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{'/css/styles.css'}" />
+</head>
+<body>
+
+<h1>Add / Edit Person</h1>
+
+<nav>
+    <ul>
+        <li><a href="index.html" th:href="@{'/'}">Home</a></li>
+        <li><a href="personForm.html" th:href="@{'/person'}">Add Person</a></li>
+    </ul>
+</nav>
+
+<form action="index.html" th:action="@{'/savePerson'}">
+
+    <div>
+        <label>Title</label>
+        <input type="text" name="title" th:value="${person.getTitle()}" />
+    </div>
+
+    <div>
+        <label>First Name</label>
+        <input type="text" name="firstName" th:value="${person.getFirstName()}" />
+    </div>
+
+    <div>
+        <label>Middle Name</label>
+        <input type="text" name="middleName" th:value="${person.getMiddleName()}" />
+    </div>
+
+    <div>
+        <label>Last Name</label>
+        <input type="text" name="lastName" th:value="${person.getLastName()}" />
+    </div>
+
+    <div>
+        <label>Suffix</label>
+        <input type="text" name="suffix" th:value="${person.getTitle()}" />
+    </div>
+
+    <input type="hidden" name="personId" th:value="${person.getPersonId()}" />
+
+    <button>Save Person</button>
+
+</form>
+
+</body>
+</html>

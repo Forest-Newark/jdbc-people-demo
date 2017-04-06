@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>List People</title>
+
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{'/css/styles.css'}" />
+</head>
+<body>
+
+<h1>List People</h1>
+
+<nav>
+    <ul>
+        <li><a href="index.html" th:href="@{'/'}">Home</a></li>
+        <li><a href="personForm.html" th:href="@{'/person'}">Add Person</a></li>
+    </ul>
+</nav>
+
+<table>
+    <tr>
+        <th>Person Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th></th>
+    </tr>
+    <tr th:each="person : ${people}">
+        <td th:text="${person.getPersonId()}">1</td>
+        <td><a href="personForm.html" th:href="@{'/person?personId=' + ${person.getPersonId()} }" th:text="${person.getFirstName()}">Wilma</a></td>
+        <td th:text="${person.getLastName()}">Jones</td>
+        <td>
+            <a href="index.html" th:href="@{'/delete?personId=' + ${person.getPersonId()}}">
+                <img src="../static/img/delete.png" th:src="@{'/img/delete.png'}" />
+            </a></td>
+    </tr>
+    <!-- <tr>
+        <td>2</td>
+        <td><a href="personForm.html">Bob</a></td>
+        <td>Smith</td>
+        <td><a href="index.html"><img src="../static/img/delete.png" th:src="@{'/img/delete.png'}" /></a></td>
+    </tr>-->
+</table>
+
+</body>
+</html>
